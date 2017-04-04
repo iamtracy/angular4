@@ -8,8 +8,6 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
 export class RecipeService {
 
-    recipeSelected = new EventEmitter<Recipe>();
-
     private recipes: Recipe[] = [
         new Recipe('Grand Mac', 
         'Ermagerd', 
