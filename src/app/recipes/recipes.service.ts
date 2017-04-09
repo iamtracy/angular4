@@ -12,7 +12,7 @@ export class RecipeService {
 
     private recipes: Recipe[] = [
         new Recipe('Grand Mac', 
-        'Ermagerd', 
+        'Burger', 
         'http://static.highsnobiety.com/wp-content/uploads/2016/04/03195756/mcdonalds-giga-big-mac-japan-0.jpg', 
         [
             new Ingredient('Mac Sauce', 2),
