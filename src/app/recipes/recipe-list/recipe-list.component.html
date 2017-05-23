@@ -12,8 +12,7 @@
                 <p><a routerLink="/signin">Login</a> to enable private recipe access</p>
             </div>
         </div>
-        <app-recipe-item *ngFor="let recipeEl of recipes; let i = index" [recipe]="recipeEl" [index]="i">
-        </app-recipe-item>
+        <app-recipe-item *ngFor="let recipe of recipes; let i = index" [recipe]="recipe" [index]="i"></app-recipe-item>
     </div>
 </div>
 <div *ngIf="authService.isAuthenticated()">
