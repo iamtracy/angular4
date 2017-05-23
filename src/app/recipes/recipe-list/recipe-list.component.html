@@ -3,7 +3,7 @@
         <div *ngIf="authService.isAuthenticated()">
             <h1>Private Recipes</h1>
             <div class="bs-callout">
-                <p>Hover 'Manage' in the top navigation and 'Fetch Data' to view all</p>
+                <p>Click 'Manage' in the top navigation then click 'Fetch Data' to view all recipes</p>
             </div>
         </div>
         <div *ngIf="!authService.isAuthenticated()">
