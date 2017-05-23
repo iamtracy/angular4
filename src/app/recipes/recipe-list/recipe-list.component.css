@@ -1,0 +1,11 @@
+.bs-callout {
+    padding: 6px;
+    margin: 7px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+
+p {
+    margin-bottom: 0;
+}

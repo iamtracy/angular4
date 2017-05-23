@@ -6,37 +6,36 @@ import * as firebase from 'firebase';
 export class AuthService {
     token: string;
 
-    constructor(private router: Router) {
-
-    }
+    constructor(private router: Router) {}
 
     signupUser(email: string, password: string) {
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-            .catch(
-                err => console.log(err)
-            )
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .catch(err => console.log(err));
     }
     signinUser(email: string, password: string) {
-        firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(
-                response => {
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .then(response => {
                     this.router.navigate(['/']);
-                    firebase.auth().currentUser.getToken()
-                    .then(
-                        (token: string) => this.token = token
-                    );
+                    firebase
+                    .auth()
+                    .currentUser
+                    .getToken()
+                    .then((token: string) => this.token = token);
                 }  
             )
-            .catch(
-                err => console.log(err)
-            )
+            .catch(err => console.log(err));
     }
 
     getToken() {
-        firebase.auth().currentUser.getToken()
-            .then(
-                (token: string) =>this.token = token
-            );
+        firebase
+            .auth()
+            .currentUser
+            .getToken()
+            .then((token: string) =>this.token = token);
         return this.token;
     }
 
@@ -45,7 +44,9 @@ export class AuthService {
     }
 
     logout() {
-        firebase.auth().signOut();
+        firebase
+            .auth()
+            .signOut();
         this.token = null;
     }
 

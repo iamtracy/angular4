@@ -1,12 +1,26 @@
 <div class="row">
     <div class="col-xs-12">
-        <button class="btn btn-success" (click)="onNewRecipe()">New Recipe</button>
-    </div>
-</div>
-<hr>
-<div class="row">
-    <div class="col-xs-12">
+        <div *ngIf="authService.isAuthenticated()">
+            <h1>Private Recipes</h1>
+            <div class="bs-callout">
+                <p>Hover 'Manage' in the top navigation and 'Fetch Data' to view all</p>
+            </div>
+        </div>
+        <div *ngIf="!authService.isAuthenticated()">
+            <h1>Public Recipes</h1>
+            <div class="bs-callout">
+                <p><a routerLink="/signin">Login</a> to enable private recipe access</p>
+            </div>
+        </div>
         <app-recipe-item *ngFor="let recipeEl of recipes; let i = index" [recipe]="recipeEl" [index]="i">
         </app-recipe-item>
+    </div>
+</div>
+<div *ngIf="authService.isAuthenticated()">
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-success" (click)="onNewRecipe()">New Recipe</button>
+        </div>
     </div>
 </div>
